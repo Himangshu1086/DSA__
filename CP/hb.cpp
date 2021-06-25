@@ -47,13 +47,13 @@ using namespace std;
 #define PI 3.1415926535897932384626433832795
 #define MOD 1000000007
 #define read(type) readInt<type>()
-const double pi=acos(-1.0);
+const double pi = acos(-1.0);
 typedef pair<int, int> PII;
 typedef vector<int> VI;
 typedef vector<string> VS;
 typedef vector<PII> VII;
 typedef vector<VI> VVI;
-typedef map<int,int> MPII;
+typedef map<int, int> MPII;
 typedef set<int> SETI;
 typedef multiset<int> MSETI;
 typedef long int int32;
@@ -65,17 +65,28 @@ typedef unsigned long long int  uint64;
 
 
 
-void solve(){
+void solve() {
 
-    cout << "happy programming";
+	cout << "happy programming";
 }
 
 
-int main(){
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt" , "r" , stdin);
-    freopen("output.txt" , "w" , stdout);
-    #endif
 
-    solve();
+
+
+
+
+
+
+
+
+
+
+int main() {
+#ifndef ONLINE_JUDGE
+	freopen("input.txt" , "r" , stdin);
+	freopen("output.txt" , "w" , stdout);
+#endif
+
+	solve();
 }

@@ -13,14 +13,23 @@ class BST
         // parameterised constructor
         BST(int);
         
+        // search function
+        BST* Search(BST* , int);
+
         // Insert function.
         BST* Insert(BST*, int);
     
+        //delete function
+        BST* Delete(BST* , int);
+
         // preorder traversal
         void preorder(BST*);
 
         // Inorder traversal.
         void Inorder(BST*);
+
+        //postOrder traversal
+        void postOrder(BST*);
 
 };
 
@@ -57,7 +66,7 @@ BST* BST ::Insert(BST* root, int value)
     {
         // Insert right node data, if the 'value'
         // to be inserted is greater than 'root' node data.
- 
+
         // Process right nodes.
         root->right = Insert(root->right, value);
     }
@@ -74,6 +83,27 @@ BST* BST ::Insert(BST* root, int value)
     return root;
 }
 
+//Search function
+
+BST* BST :: Search(BST* root , int key)
+{
+    if(root ==NULL )
+        return NULL;
+    if ( key == root->data)
+        return root;
+    if (key < root->data)
+        return Search(  root->left , key );
+    return Search(  root->right , key );
+}
+
+
+
+// Delete a node from the BST
+
+BST* BST :: Delete(BST* root  , int key)
+{
+    
+}
 
 
 
@@ -85,7 +115,7 @@ void BST ::Inorder(BST* root)
         return;
     }
     Inorder(root->left);
-    cout << root->data << endl;
+    cout << root->data <<"  ";
     Inorder(root->right);
 }
 
@@ -96,30 +126,45 @@ void BST :: preorder(BST *root){
 
     if(root == NULL)
         return;
-    cout << root->data<< endl;
+    cout << root->data<< "  ";
     preorder(root->left);
     preorder(root->right);
 }
 
+// postOrder traversal 
+
+void BST :: postOrder(BST* root)
+{
+    if(root == NULL)
+        return;
+    preorder(root->left);
+    preorder(root->right);
+    cout << root->data<< "  ";
+    
+}
 
 
-
-
-int main(){
+int main()
+{
 
     BST b , *root = NULL;
-    root = b.Insert(root, 1);
+    root = b.Insert(root, 6);
     b.Insert(root, 2);
-    b.Insert(root, 3);
     b.Insert(root, 4);
     b.Insert(root, 5);
-    b.Insert(root, 6);
+    b.Insert(root, 3);
+    b.Insert(root, 1);
     b.Insert(root, 7);
  
- cout<< "inorder traversal"<<endl;
+ cout << "inorder traversal"<< " :   ";
     b.Inorder(root);
-cout << "preorder traversal "<<endl;
+cout <<endl<< "preorder traversal "<< " :   ";
     b.preorder(root);
+    cout << endl;
+    if(b.Search(root , 8)==NULL)
+        cout << "key is not present"<< endl;
+    else
+        cout << "key is present " << endl;
     return 0;
   
 }
